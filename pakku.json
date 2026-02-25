@@ -1,6 +1,6 @@
 {
     "name": "CivPack",
-    "version": "1.21.8-2.0.6",
+    "version": "1.21.11-2.1.0",
     "description": "A modpack designed for CivMC and Civilization servers. Includes a Minimap, PVP mods, Litematica and a plethora of optimization mods.",
     "author": "Bulbmin",
     "projects": {
@@ -16,6 +16,12 @@
         "combatradar": {
             "redistributable": true
         },
+        "'litematica": {
+            "redistributable": true
+        },
+        "litematica-printer": {
+            "redistributable": true
+        },
         "effecttimerplus": {
             "redistributable": false
         },
@@ -25,5 +31,6 @@
         "nofog": {
             "redistributable": false
         }
-    }
+    },
+    "export_server_side_projects_to_client": true
 }
