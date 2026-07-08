@@ -86,7 +86,7 @@
     "commandNameSetblock": "setblock",
     "commandNameSummon": "summon",
     "commandTaskInterval": 1,
-    "customSchematicBaseDirectory": "C:\\Games\\PrismLauncher\\instances\\CURSEFORGE CivPack 1.21.8-1.0.2\\minecraft\\schematics",
+    "customSchematicBaseDirectory": "",
     "easyPlaceSwapInterval": 0,
     "pickBlockableSlots": "1,2,3,4,5",
     "toolItem": "minecraft:bone",

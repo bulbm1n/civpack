@@ -1,2 +1,7 @@
 build/
 pakku.jar
+
+# Pakku Pipeline Temp Files
+pakku-lock-prev.json
+CHANGELOG-*.md
+PROJECTS_DIFF.md
