@@ -57,7 +57,8 @@ def main():
     lock_data = load_json("pakku-lock.json")
     
     # Game versions & loaders
-    game_versions = ",".join(lock_data.get("mc_versions", []))
+    mc_versions = lock_data.get("mc_versions", [])
+    game_versions = mc_versions[0] if mc_versions else "1.21.11"
     loaders = ",".join([l.lower() for l in lock_data.get("loaders", {}).keys()])
     if not loaders:
         loaders = "fabric" # Fallback
