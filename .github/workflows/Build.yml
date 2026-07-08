@@ -69,7 +69,22 @@ jobs:
 
       - name: Export modpacks
         run: |
-          java -jar ./pakku.jar --debug export
+          set -o pipefail
+          java -jar ./pakku.jar --debug export 2>&1 | tee /tmp/pakku-export.log
+          export_status=${PIPESTATUS[0]}
+
+          # Ignore intentional non-redistributable skips, but fail on any other exporter error.
+          if [ "$export_status" -ne 0 ]; then
+            if grep -q "can not be exported, because it is not redistributable" /tmp/pakku-export.log && \
+               ! grep -v "can not be exported, because it is not redistributable" /tmp/pakku-export.log | grep -q "ERROR\|Error\|FAILED\|Failed"; then
+              echo "Intentional non-redistributable exports were skipped; continuing."
+              exit 0
+            fi
+
+            echo "pakku export failed with unexpected errors:"
+            cat /tmp/pakku-export.log
+            exit "$export_status"
+          fi
 
       - name: Upload build
         uses: actions/upload-artifact@v5
